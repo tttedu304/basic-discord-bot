@@ -5,7 +5,6 @@ const { token } = require("./config.json"); //Archivo de las variables
 const Enmap = require("enmap"); //Llamamos al pacakage de enmap
 const fs = require("fs"); //fs es un paquete que ya viene instalado automaticamente con nodejs
 const config = require("./config.json"); //Asi exportamos el archivo config a todas partes
-const mongoose = require("mongoose");
 client.config = config;
 
 //Ahora los eventos iran en archivos separados, no aqui
@@ -31,13 +30,6 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-
-/*
-Conectamos con la base de datos
-*/
-mongoose.connect(config.mongouri, { useNewUrlParser: true });
-
-client.db = require("./database.js");
 
 /*
     Prendemos el bot
